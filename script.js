@@ -40,7 +40,6 @@ const collectEmployees = function () {
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
-  // TODO: Calculate and display the average salary
   // Variables needed to hold information on the total salary when each employee salary is added together
   // and the average when they are divided by the number of employees
   let totalSalary = 0;
@@ -62,8 +61,21 @@ const displayAverageSalary = function (employeesArray) {
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
-  // TODO: Select and display a random employee
+  // Create variables for ease of use
+  let randomNum;
+  let employeeFirstName;
+  let employeeLastName;
 
+  // Finds a number between 0 and numberOfEmployees
+  randomNum = Math.floor(Math.random() * numberOfEmployees);
+
+  // Sets first name and last name variablees for use in the console log
+  employeeFirstName = employeesArray[randomNum].firstName;
+  employeeLastName = employeesArray[randomNum].lastName;
+
+  // Console logs the winner of the random drawing
+  console.log(`Congratulations to ${employeeFirstName} ${employeeLastName}, our random drawing winner!`);
+  return;
 };
 
 /*
