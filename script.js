@@ -12,6 +12,7 @@ const collectEmployees = function () {
 
   // While loop that creates prompts to store information about each employee and create objects for them individually
   while(addMoreEmployees !== false){
+
     firstName = prompt("Employee First Name");
     lastName = prompt("Employee Last Name");
     salary = Number(prompt("Employee Salary"));
@@ -36,6 +37,8 @@ const collectEmployees = function () {
 
   addMoreEmployees = confirm("Add another employee?");
   }
+
+  return numEmployeesArray;
 };
 
 // Display the average salary
