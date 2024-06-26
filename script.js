@@ -9,7 +9,25 @@ const collectEmployees = function () {
   let addMoreEmployees;
 
   while(addMoreEmployees !== false){
-        
+    firstName = prompt("Employee First Name");
+    lastName = prompt("Employee Last Name");
+    salary = Number(prompt("Employee Salary"));
+
+    if (isNaN(salary)) {
+      salary = 0;
+    } else {
+      salary = salary;
+    }
+
+  person = {
+    "firstName": firstName,
+    "lastName": lastName,
+    "salary": salary
+    }
+  
+  numEmployeesArray.push(person);
+
+  addMoreEmployees = confirm("Add another employee?");
   }
 };
 
