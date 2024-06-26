@@ -6,9 +6,11 @@ let numberOfEmployees = 0;
 
 // Collect employee data
 const collectEmployees = function () {
-  // TODO: Get user input to create and return an array of employee objects
+
+  // Boolean variable to toggle when the while loop should stop
   let addMoreEmployees;
 
+  // While loop that creates prompts to store information about each employee and create objects for them individually
   while(addMoreEmployees !== false){
     firstName = prompt("Employee First Name");
     lastName = prompt("Employee Last Name");
@@ -20,13 +22,16 @@ const collectEmployees = function () {
       salary = salary;
     }
 
-  person = {
-    "firstName": firstName,
-    "lastName": lastName,
-    "salary": salary
+    person = {
+      "firstName": firstName,
+      "lastName": lastName,
+      "salary": salary
     }
   
+  // Fills the array with each object
   numEmployeesArray.push(person);
+
+  // Increments a variable to store how many employees are logged
   numberOfEmployees++
 
   addMoreEmployees = confirm("Add another employee?");
@@ -36,13 +41,22 @@ const collectEmployees = function () {
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
+  // Variables needed to hold information on the total salary when each employee salary is added together
+  // and the average when they are divided by the number of employees
   let totalSalary = 0;
-  let averageSalary = 0;
+  let averageSalaryWithTwoDecimals = 0;
+  
+  // A loop to add each employees salary together
   for(i = 0; i < employeesArray.length; i++){
     totalSalary = totalSalary + employeesArray[i].salary;
   }
-  averageSalary = (totalSalary / numberOfEmployees);
-  console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalary}`);
+
+  // Getting the average
+  averageSalaryWithTwoDecimals = (Math.floor(totalSalary / numberOfEmployees));
+
+  // Console logging the average out using a template literal
+  console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalaryWithTwoDecimals.toFixed(2)}`);
+
   return;
 }
 
