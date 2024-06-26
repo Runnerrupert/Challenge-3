@@ -78,6 +78,7 @@ const getRandomEmployee = function (employeesArray) {
 
   // Console logs the winner of the random drawing
   console.log(`Congratulations to ${employeeFirstName} ${employeeLastName}, our random drawing winner!`);
+
   return;
 };
 
