@@ -13,29 +13,29 @@ const collectEmployees = function () {
   // While loop that creates prompts to store information about each employee and create objects for them individually
   while(addMoreEmployees !== false){
 
-    firstName = prompt("Employee First Name");
-    lastName = prompt("Employee Last Name");
-    salary = Number(prompt("Employee Salary"));
+    firstName = prompt("Enter first name:");
+
+    lastName = prompt("Enter last name:");
+
+    salary = Number(prompt("Enter salary:"));
 
     if (isNaN(salary)) {
       salary = 0;
-    } else {
-      salary = salary;
     }
 
-    person = {
-      "firstName": firstName,
-      "lastName": lastName,
-      "salary": salary
+    let person = {
+      firstName: firstName,
+      lastName: lastName,
+      salary: salary
     }
   
   // Fills the array with each object
-  numEmployeesArray.push(person);
+    numEmployeesArray.push(person);
 
   // Increments a variable to store how many employees are logged
-  numberOfEmployees++
+    numberOfEmployees++
 
-  addMoreEmployees = confirm("Add another employee?");
+    addMoreEmployees = confirm("Do you want to add another employee?");
   }
 
   return numEmployeesArray;
@@ -54,12 +54,10 @@ const displayAverageSalary = function (employeesArray) {
   }
 
   // Getting the average
-  averageSalaryWithTwoDecimals = (Math.floor(totalSalary / numberOfEmployees));
+  averageSalaryWithTwoDecimals = (totalSalary / numberOfEmployees).toFixed(2);
 
   // Console logging the average out using a template literal
-  console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalaryWithTwoDecimals.toFixed(2)}`);
-
-  return;
+  console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalaryWithTwoDecimals}`);
 }
 
 // Select a random employee
@@ -69,8 +67,8 @@ const getRandomEmployee = function (employeesArray) {
   let employeeFirstName;
   let employeeLastName;
 
-  // Finds a number between 0 and numberOfEmployees
-  randomNum = Math.floor(Math.random() * numberOfEmployees);
+  // Finds a number between 0 and the number of employees in the array.
+  randomNum = Math.floor(Math.random() * employeesArray.length);
 
   // Sets first name and last name variablees for use in the console log
   employeeFirstName = employeesArray[randomNum].firstName;
@@ -78,8 +76,6 @@ const getRandomEmployee = function (employeesArray) {
 
   // Console logs the winner of the random drawing
   console.log(`Congratulations to ${employeeFirstName} ${employeeLastName}, our random drawing winner!`);
-
-  return;
 };
 
 /*
